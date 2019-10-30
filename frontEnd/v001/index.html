@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const ws = new WebSocket("ws://localhost:14498/")
+        ws.onopen = (event) => {
+            console.log('ws open =>', event)
+            ws.send('hello server')
+        }
+        ws.onmessage = (event) => {
+            console.log('onmessage =>', event)
+            ws.close()
+        }
+        // ws.send('send -> hello server')
+        ws.onerror = (event) => {
+            console.log('err =>', event)
+        }
+    </script>
+</body>
+</html>
