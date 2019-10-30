@@ -14,11 +14,6 @@ module.exports = class {
 
     }
 
-    // check has user
-    static async checkHasUser (username) {
-        return await new mysqlPool().query('select * from user where username = ?', [username])
-    }    
-
     // register
     static async register (obj) {
         const username = obj.username
@@ -40,9 +35,18 @@ module.exports = class {
         return await new mysqlPool().query('insert into user (userid, username, password) values (?, ?, ?)', [userid, username, password])
     }
 
+    static async login (obj) {
+        
+    }
+
     // check login
-    static async check (chunk) {
-        console.log('check chunk =>', chunk)
+    static async check (obj) {
+        console.log('check login =>', obj)
         return await new mysqlPool().query(`select * from user`,[])
     }
+
+    // check has user
+    static async checkHasUser (username) {
+        return await new mysqlPool().query('select * from user where username = ?', [username])
+    }   
 }

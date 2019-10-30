@@ -14,7 +14,10 @@ module.exports = class {
 
     // create uuid by time
     static async byTime () {
-        const { stdout } = await execFile(`${path.join(__dirname, './src/a.out')}`, ['time', '666'])
+        const { error, stdout, stderr } = await execFile(`${path.join(__dirname, './src/a.out')}`, ['time', '666'])
+        if (error) {
+            throw error
+        }
         console.log('uuid byTime c =>', stdout)
 
         return stdout

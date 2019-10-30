@@ -13,10 +13,10 @@ module.exports = class {
             'username': 'b',
             'password': 'b'
         }).then((res) => {
-            console.log('注册结果 =>', res.result.warningStatus)
+            console.log('register result =>', res.result.warningStatus)
             try {
                 self.socket.write(JSON.stringify({
-                    "msg": '註冊成功',
+                    "msg": 'register success',
                     "data": res.result,
                 }))
             } catch (e) {
@@ -24,9 +24,12 @@ module.exports = class {
             }
             
         }).catch((err) => {
-            console.log('注册问题 =>', err)
+            console.log('register err =>', err)
             try {
-                self.socket.write(JSON.stringify(err))
+                self.socket.write(JSON.stringify({
+                    "msg": err.msg,
+                    "evidence": err.evidence
+                }))
             } catch (e) { 
                 throw e
             }
