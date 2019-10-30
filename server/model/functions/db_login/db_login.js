@@ -1,5 +1,5 @@
-const mysqlPool = require('../../../../db/db')
-const UUID      = require('../../../../utils/uuid/uuid')
+const mysqlPool = require('../../../db/db')
+const UUID      = require('../../../utils/uuid/uuid')
 module.exports = class {
     constructor (server, clientObj, socket) {
         this.server    = server

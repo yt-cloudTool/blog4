@@ -4,7 +4,7 @@
 #include <sys/time.h>
 
 int create_by_time();
-int create_ty_name();
+int create_by_name();
 
 /* 
 *   argv[1] -> type
@@ -19,7 +19,7 @@ int main (int argc, char *argv[]) {
     }
     // use byName
     else if (strcmp(params_type, "name") == 0) {
-        create_ty_name(params_data);
+        create_by_name(params_data);
     }
 
     return 0;
@@ -39,6 +39,6 @@ int create_by_time (char *params_data) {
 }
 
 // by name
-int create_ty_name (char *params_data) {
+int create_by_name (char *params_data) {
 
 }

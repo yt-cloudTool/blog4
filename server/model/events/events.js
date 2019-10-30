@@ -28,8 +28,6 @@ class Handler_events {
     constructor (server, clientObj, socket, emitter) {
         new handlerEvents(server, clientObj, socket, emitter)
     }
-
-    
 }
 
 module.exports = {
