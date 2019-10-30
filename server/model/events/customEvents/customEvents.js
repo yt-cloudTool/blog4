@@ -2,26 +2,28 @@ const Route_login = require('../../routes/login/login')
 
 module.exports = (emitter) => {
     /* 注册 | register */
-    emitter.on('register', (data) => {
+    emitter.on('register', (data, socket) => {
         /* 异步进行 | async */
         setImmediate(() => {
-            new Route_login(emitter).register(data)
+            new Route_login(emitter, socket).register(data)
         })
     })
 
     /* 登录 | login */
-    emitter.on('login', (res) => {
+    emitter.on('login', (res, socket) => {
         /* 异步进行 | async */
         setImmediate(() => {
-            console.log('login =>', res)
+            new Route_login(emitter, socket).login(data)
         })
     })
 
     /* 检查登录 | checklogin */
-    emitter.on('checklogin', (data) => {
+    emitter.on('checklogin', (data, socket) => {
         /* 异步进行 | async */
         setImmediate(() => {
-            new Route_login(emitter).check(data)
+            new Route_login(emitter, socket).check(data)
         })
     })
+
+    /*  */
 }

@@ -28,15 +28,15 @@ module.exports = class {
             break
             // register
             case 'register':
-                self.emitter.emit('register', jsonChunk)
+                self.emitter.emit('register', jsonChunk, self.socket)
             break
             // login
             case 'login':
-                self.emitter.emit('login', jsonChunk)
+                self.emitter.emit('login', jsonChunk, self.socket)
             break
             // checklogin
             case 'checklogin':
-                self.emitter.emit('checklogin', jsonChunk)
+                self.emitter.emit('checklogin', jsonChunk, self.socket)
             break
             default: break
         }
