@@ -12,13 +12,13 @@ module.exports = class {
             let jsonChunk = null
             try { jsonChunk = JSON.parse(chunk) } catch (e) { jsonChunk = {} }
             // route
-            self.clientMethod(jsonChunk)
+            self.clientNormalMethod(jsonChunk)
         })
     
         self.socket.pipe(self.socket)
     }
     // client require
-    clientMethod (jsonChunk) {
+    clientNormalMethod (jsonChunk) {
         const self = this
         switch (String(jsonChunk.method)) {
             // query index page
