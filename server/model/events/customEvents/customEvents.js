@@ -10,7 +10,7 @@ module.exports = (emitter) => {
     })
 
     /* 登录 | login */
-    emitter.on('login', (res, socket) => {
+    emitter.on('login', (data, socket) => {
         /* 异步进行 | async */
         setImmediate(() => {
             new Route_login(emitter, socket).login(data)

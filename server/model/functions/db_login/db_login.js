@@ -36,13 +36,23 @@ module.exports = class {
     }
 
     static async login (obj) {
-        
+        const self = this
+        return await new mysqlPool().trans([
+            {
+                sql: 'insert into user (userid, username, password) values (?, ?, ?)',
+                valueArr: [await UUID.byTime(), await UUID.byTime(), await UUID.byTime()]
+            },
+            {
+                sql: 'insert into user (userid, username, password) values (?, ?, ?)',
+                valueArr: [await UUID.byTime(), await UUID.byTime(), await UUID.byTime()]
+            },
+        ])
     }
 
     // check login
     static async check (obj) {
         console.log('check login =>', obj)
-        return await new mysqlPool().query(`select * from user`,[])
+        
     }
 
     // check has user

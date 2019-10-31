@@ -39,6 +39,11 @@ module.exports = class {
     // login
     login (data) {
         const self = this
+        Login.login().then((res) => {
+            console.log('login res =>', res)
+        }).catch((err) => {
+            console.log('login err =>', err)
+        })
     }
 
     // check
